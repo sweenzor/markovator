@@ -28,7 +28,7 @@ class Markovator:
         return markovation.strip()
 
     def parse_sentence(self, sentence):
-        new_words = sentence.lstrip().rstrip().split(' ')    
+        new_words = sentence.lstrip().rstrip().split(' ')
         if len(new_words) > 0:
             previous_word = new_words.pop(0)
             self.add_to_entry(previous_word, self.starting_entry)
