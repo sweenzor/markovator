@@ -24,8 +24,11 @@ def create_markovated_tweet(tweets, max_length, unwanted_markovations=[]):
 
 if __name__ == '__main__':
 
-    with open('james.json', 'r') as textfile:
-        #text = [line for line in textfile.readlines()]
-        text = json.load(textfile)
-        text = [t['text'] for t in text]
-    print create_markovated_tweet(text, 140)
+    with open('roguelazer', 'r') as textfile:
+        text = [line for line in textfile.readlines()]
+
+        processed_text = []
+        for t in text:
+            processed_text.append(t.split('<Roguelazer> ')[-1])
+
+    print create_markovated_tweet(processed_text, 140)
