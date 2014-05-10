@@ -29,6 +29,9 @@ if __name__ == '__main__':
 
         processed_text = []
         for t in text:
-            processed_text.append(t.split('<Roguelazer> ')[-1])
+            tweet = t.split('<Roguelazer> ')[-1].strip()
+            if not (tweet[0] == '@' or tweet[0:2] == 'RT'):
+                processed_text.append(tweet)
 
-    print create_markovated_tweet(processed_text, 140)
+    for i in range(10):
+        print create_markovated_tweet(processed_text, 140)
